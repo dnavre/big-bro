@@ -19,8 +19,8 @@ Route::get('/welcome', array('as' => 'welcome', function () {
     return view('welcome');
 }));
 
-Route::get('/home', array('as' => 'home', 'before' => 'auth', function () {
-    return view('home');
+Route::get('/overview', array('as' => 'overview', 'before' => 'auth', function () {
+    return view('overview');
 }));
 
 Route::post('/auth/login', ['as' => 'login', 'uses' => 'Auth\AuthController@authenticate']);

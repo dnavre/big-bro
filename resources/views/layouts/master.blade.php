@@ -29,12 +29,14 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
+                @if(Auth::user() != null)
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ action('Auth\AuthController@logout') }}">Logout</a></li>
                     </ul>
                 </li>
+                @endif
             </ul>
         </div>
     </div>
@@ -42,9 +44,11 @@
 
 <div class="container-fluid">
     <div class="row">
-
+        
         <div class="col-sm-3 col-md-2 sidebar">
+            @if( Auth::check())
             @include('widgets.sidebar')
+            @endif
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h1 class="page-header">Dashboard</h1>

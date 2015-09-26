@@ -154,6 +154,7 @@ return [
         BigBro\Providers\AuthServiceProvider::class,
         BigBro\Providers\EventServiceProvider::class,
         BigBro\Providers\RouteServiceProvider::class,
+        BigBro\Providers\TeamServiceProvider::class,
 
     ],
 

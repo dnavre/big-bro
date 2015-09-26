@@ -73,7 +73,7 @@ class AuthController extends Controller
         {
             $this->authService->createUserIfNeeded(Auth::user());
 
-            return redirect()->intended('home');
+            return redirect()->intended('overview');
         } else {
             return view('welcome', ['invalidCredentials' => true]);
         }
@@ -87,8 +87,7 @@ class AuthController extends Controller
      */
     public function logout(Request $request)
     {
-
-        session_destroy();
+        Auth::logout();
         return Redirect::to('welcome');
     }
 }
