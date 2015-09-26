@@ -4,7 +4,6 @@ namespace BigBro\Http\Controllers\Team;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use Log;
 use Auth;
 use Session;
 use App;
@@ -49,5 +48,9 @@ class TeamController extends Controller
 
     public function listAll() {
         return view('teams', ['mainMenu' => 'teams']);
+    }
+
+    public function create(Request $request) {
+        $this->teamService->
     }
 }

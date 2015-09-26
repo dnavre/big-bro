@@ -22,6 +22,9 @@ Route::get('/welcome', array('as' => 'welcome', function () {
 Route::get('/overview', ['as' => 'overview', 'before' => 'auth', 'uses' => 'Overview\OverviewController@show']);
 
 Route::get('/teams', ['as' => 'teams', 'before' => 'auth', 'uses' => 'Team\TeamController@listAll']);
+Route::put('/teams/create', ['as' => 'createTeam', 'before' => 'auth', 'uses' => 'Team\TeamController@create']);
+
+
 Route::get('/people', ['as' => 'people', 'before' => 'auth', 'uses' => 'People\PeopleController@listAll']);
 
 Route::post('/auth/login', ['as' => 'login', 'uses' => 'Auth\AuthController@authenticate']);
