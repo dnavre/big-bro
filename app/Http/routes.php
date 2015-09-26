@@ -23,6 +23,8 @@ Route::get('/overview', array('as' => 'overview', 'before' => 'auth', function (
     return view('overview');
 }));
 
+Route::get('/teams', ['as' => 'teams', 'before' => 'auth', 'uses' => 'Team\TeamConteoller@listAll']);
+
 Route::post('/auth/login', ['as' => 'login', 'uses' => 'Auth\AuthController@authenticate']);
 Route::get('/auth/logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@logout']);
 

@@ -44,7 +44,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        
+
         <div class="col-sm-3 col-md-2 sidebar">
             @if( Auth::check())
             @include('widgets.sidebar')
