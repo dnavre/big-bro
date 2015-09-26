@@ -155,6 +155,7 @@ return [
         BigBro\Providers\EventServiceProvider::class,
         BigBro\Providers\RouteServiceProvider::class,
         BigBro\Providers\TeamServiceProvider::class,
+        BigBro\Providers\PeopleServiceProvider::class,
 
     ],
 
