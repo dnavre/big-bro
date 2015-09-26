@@ -6,11 +6,8 @@
  * Time: 1:34 AM
  */
 
-class TeamMember extends Model implements AuthenticatableContract,
-    AuthorizableContract,
-    CanResetPasswordContract
+class TeamMember extends Model
 {
-    use Authenticatable, Authorizable, CanResetPassword;
 
     /**
      * The database table used by the model.

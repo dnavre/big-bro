@@ -6,11 +6,8 @@
  * Time: 1:34 AM
  */
 
-class Objective extends Model implements AuthenticatableContract,
-    AuthorizableContract,
-    CanResetPasswordContract
+class Objective extends Model
 {
-    use Authenticatable, Authorizable, CanResetPassword;
 
     /**
      * The database table used by the model.

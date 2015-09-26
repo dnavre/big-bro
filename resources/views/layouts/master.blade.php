@@ -11,7 +11,7 @@
 
     <link href="/css/app.css" rel="stylesheet">
     <script src="/js/app.js" ></script>
-    <title>@section('title')@show</title>
+    <title>@section('title')@show :: Bigbro</title>
 </head>
 
 <body>
@@ -25,7 +25,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">SFL OKR Portal</a>
+            <a class="navbar-brand" href="/">Bigbro</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -45,13 +45,13 @@
 <div class="container-fluid">
     <div class="row">
 
-        <div class="col-sm-3 col-md-2 sidebar">
+        <div class="col-sm-2 col-md-1 sidebar">
             @if( Auth::check())
             @include('widgets.sidebar')
             @endif
         </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header">Dashboard</h1>
+        <div class="col-sm-10 col-sm-offset-2 col-md-11 col-md-offset-1 main">
+            <h1 class="page-header">@section('title')@show</h1>
 
             @yield('content')
         </div>

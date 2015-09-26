@@ -6,11 +6,8 @@
  * Time: 1:34 AM
  */
 
-class User extends Model implements AuthenticatableContract,
-    AuthorizableContract,
-    CanResetPasswordContract
+class User extends Model
 {
-    use Authenticatable, Authorizable, CanResetPassword;
 
     /**
      * The database table used by the model.

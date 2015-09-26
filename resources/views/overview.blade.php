@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Dashboard:OKRs!')
+@section('title', 'Overview')
 
 @section('content')
 

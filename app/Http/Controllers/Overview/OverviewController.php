@@ -1,6 +1,6 @@
 <?php
 
-namespace BigBro\Http\Controllers\Team;
+namespace BigBro\Http\Controllers\Overview;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -15,13 +15,8 @@ use BigBro\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
-class TeamController extends Controller
+class OverviewController extends Controller
 {
-
-    /**
-     * @var TeamServiceProvider
-     */
-    private $teamService;
 
     /*
     |--------------------------------------------------------------------------
@@ -44,10 +39,9 @@ class TeamController extends Controller
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'getLogout']);
-        $this->teamService = App::make('BigBro\Providers\TeamServiceProvider');
     }
 
-    public function listAll() {
-        return view('teams', ['mainMenu' => 'teams']);
+    public function show() {
+        return view('overview', ['mainMenu' => 'overview']);
     }
 }

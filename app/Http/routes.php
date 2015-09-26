@@ -19,11 +19,9 @@ Route::get('/welcome', array('as' => 'welcome', function () {
     return view('welcome');
 }));
 
-Route::get('/overview', array('as' => 'overview', 'before' => 'auth', function () {
-    return view('overview');
-}));
+Route::get('/overview', ['as' => 'overview', 'before' => 'auth', 'uses' => 'Overview\OverviewController@show']);
 
-Route::get('/teams', ['as' => 'teams', 'before' => 'auth', 'uses' => 'Team\TeamConteoller@listAll']);
+Route::get('/teams', ['as' => 'teams', 'before' => 'auth', 'uses' => 'Team\TeamController@listAll']);
 
 Route::post('/auth/login', ['as' => 'login', 'uses' => 'Auth\AuthController@authenticate']);
 Route::get('/auth/logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@logout']);

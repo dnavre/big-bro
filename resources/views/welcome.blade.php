@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Welcome to OKRs!')
+@section('title', 'Welcome')
 
 @section('content')
 <div class="row">
