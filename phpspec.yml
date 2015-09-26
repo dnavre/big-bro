@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: BigBro
+        psr4_prefix: BigBro
+        src_path: app
