@@ -47,7 +47,7 @@ class TeamController extends Controller
     }
 
     public function listAll() {
-        return view('teams', ['mainMenu' => 'teams']);
+        return view('teams', ['mainMenu' => 'teams', 'teams' => $this->teamService->getAll()]);
     }
 
     public function create(Request $request) {

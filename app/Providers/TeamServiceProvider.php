@@ -41,14 +41,10 @@ class TeamServiceProvider extends ServiceProvider
         });
     }
 
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function getAllTeams()
-    {
 
+    public function getAll()
+    {
+        return Team::all();
     }
 
     public function createTeam($name) {
