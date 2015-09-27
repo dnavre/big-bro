@@ -33,8 +33,14 @@ class PeopleServiceProvider extends ServiceProvider
     }
 
     public function getPerson ($id = null) {
-        return User::firstOrNew([
+        return User::where([
             'id' => $id
-        ]);
+        ])->first();
+    }
+
+    public function getPersonByUsername ($username = null) {
+        return User::where([
+            'username' => $username
+        ])->first();
     }
 }

@@ -33,4 +33,19 @@ class TeamMember extends Model
      * @var array
      */
     protected $hidden = [];
+
+    public function team()
+    {
+        return $this->belongsTo('BigBro\Models\Team', 'team_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('BigBro\Models\User', 'user_id');
+    }
+
+    public function creator()
+    {
+        return $this->belongsTo('BigBro\Models\User', 'creator_id');
+    }
 }

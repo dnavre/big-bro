@@ -23,6 +23,7 @@ Route::get('/overview', ['as' => 'overview', 'before' => 'auth', 'uses' => 'Over
 
 Route::get('/teams', ['as' => 'teams', 'before' => 'auth', 'uses' => 'Team\TeamController@listAll']);
 Route::post('/teams/create', ['as' => 'createTeam', 'before' => 'auth', 'uses' => 'Team\TeamController@create']);
+Route::post('/teams/addMember', ['as' => 'addMemberToTeam', 'before' => 'auth', 'uses' => 'Team\TeamController@addMember']);
 Route::get('/teams/{teamName}/{teamId}', ['as' => 'viewTeam', 'before' => 'auth', 'uses' => 'Team\TeamController@viewTeam']);
 
 

@@ -8,6 +8,8 @@ use Auth;
 use Session;
 use App;
 use BigBro\Providers\TeamServiceProvider;
+use BigBro\Providers\TeamMemberServiceProvider;
+use BigBro\Providers\PeopleServiceProvider;
 use BigBro\Models\User;
 use Validator;
 use BigBro\Http\Controllers\Controller;
@@ -21,6 +23,16 @@ class TeamController extends Controller
      * @var TeamServiceProvider
      */
     private $teamService;
+
+    /**
+     * @var TeamMemberServiceProvider
+     */
+    private $teamMemberService;
+
+    /**
+     * @var PeopleServiceProvider
+     */
+    private $peopleService;
 
     /*
     |--------------------------------------------------------------------------
@@ -44,10 +56,12 @@ class TeamController extends Controller
     {
         $this->middleware('guest', ['except' => 'getLogout']);
         $this->teamService = App::make('BigBro\Providers\TeamServiceProvider');
+        $this->teamMemberService = App::make('BigBro\Providers\TeamMemberServiceProvider');
+        $this->peopleService = App::make('BigBro\Providers\PeopleServiceProvider');
     }
 
     public function listAll() {
-        return view('teams', ['mainMenu' => 'teams', 'teams' => $this->teamService->getAll()]);
+        return view('team.teams', ['mainMenu' => 'teams', 'teams' => $this->teamService->getAll()]);
     }
 
     public function create(Request $request) {
@@ -55,6 +69,18 @@ class TeamController extends Controller
     }
 
     public function viewTeam($teamName, $teamId) {
-        return view('viewTeam', ['mainMenu' => 'teams', 'team' => $this->teamService->get($teamId)]);
+
+        $team = $this->teamService->get($teamId);
+        $teamMembers = $this->teamService->get($teamId)->teamMembers;
+
+        return view('team.viewTeam', ['mainMenu' => 'teams', 'team' => $team, 'teamMembers' => $teamMembers]);
+    }
+
+    public function addMember(Request $request) {
+
+        $user = $this->peopleService->getPersonByUsername($request->input('username'));
+        $team = $this->teamService->get($request->input('teamId'));
+
+        $this->teamMemberService->addTeamMember($team->id, $user->id);
     }
 }

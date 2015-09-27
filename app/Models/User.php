@@ -43,4 +43,12 @@ class User extends Model implements AuthenticatableContract,
     {
         return $this->hasMany('BigBro\Models\Teams');
     }
+
+    public function createdTeamMembers() {
+        return $this->hasMany('BigBro\Models\TeamMember', 'creator_id');
+    }
+
+    public function teamMemberships() {
+        return $this->hasMany('BigBro\Models\Teams', 'user_id');
+    }
 }

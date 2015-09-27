@@ -16,6 +16,7 @@
                 <th width="30px">#</th>
                 <th>Team</th>
                 <th width="230px">Creator</th>
+                <th width="190px">Created</th>
             </tr>
         </thead>
 
@@ -26,6 +27,7 @@
                 <td>{{ $i  }}</td>
                 <td><a href="{{action('Team\TeamController@viewTeam', ['teamName' => $t->name,  'teamId' => $t->id])}}" >{{ $t->name }}</a></td>
                 <td>{{ $t->creator->name }}</td>
+                <td>{{ date('F d, Y', strtotime($t->created_at)) }}</td>
             </tr>
         @endforeach
     </table>

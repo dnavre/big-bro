@@ -40,4 +40,9 @@ class Team extends Model
     {
         return $this->belongsTo('BigBro\Models\User', 'creator_id');
     }
+
+    public function teamMembers()
+    {
+        return $this->hasMany('BigBro\Models\TeamMember');
+    }
 }
