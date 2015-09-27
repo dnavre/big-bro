@@ -62,6 +62,13 @@ class TeamServiceProvider extends ServiceProvider
         $entity->save();
     }
 
+    public function deleteTeam($teamId) {
+
+        $t = Team::where('id', $teamId)->first();
+
+        $t->delete();
+    }
+
     public function get($teamId)
     {
         return Team::where('id', $teamId)->first();

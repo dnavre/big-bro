@@ -68,6 +68,10 @@ class TeamController extends Controller
         $this->teamService->createTeam($request->input("teamName"));
     }
 
+    public function delete($teamId) {
+        $this->teamService->deleteTeam($teamId);
+    }
+
     public function viewTeam($teamName, $teamId) {
 
         $team = $this->teamService->get($teamId);

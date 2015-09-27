@@ -23,6 +23,7 @@ Route::get('/overview', ['as' => 'overview', 'before' => 'auth', 'uses' => 'Over
 
 Route::get('/teams', ['as' => 'teams', 'before' => 'auth', 'uses' => 'Team\TeamController@listAll']);
 Route::post('/teams/create', ['as' => 'createTeam', 'before' => 'auth', 'uses' => 'Team\TeamController@create']);
+Route::get('/teams/delete/{teamId}', ['as' => 'createTeam', 'before' => 'auth', 'uses' => 'Team\TeamController@delete']);
 Route::post('/teams/addMember', ['as' => 'addMemberToTeam', 'before' => 'auth', 'uses' => 'Team\TeamController@addMember']);
 Route::post('/teams/removeMember', ['as' => 'removeMemberFromTeam', 'before' => 'auth', 'uses' => 'Team\TeamController@removeMember']);
 Route::get('/teams/{teamName}/{teamId}', ['as' => 'viewTeam', 'before' => 'auth', 'uses' => 'Team\TeamController@viewTeam']);
@@ -40,6 +41,8 @@ Route::get('/people/get/{id}', [
         'uses' => 'People\PeopleController@get'
     ])
     ->where('id', '[0-9]+');
+
+Route::get('/my/okrs', ['as' => 'myOkrs', 'uses' => 'My\MyOkrsController@viewOkrs']);
 
 Route::post('/auth/login', ['as' => 'login', 'uses' => 'Auth\AuthController@authenticate']);
 Route::get('/auth/logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@logout']);

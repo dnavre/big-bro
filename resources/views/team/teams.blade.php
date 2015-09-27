@@ -29,7 +29,7 @@
                 <td><a href="{{action('Team\TeamController@viewTeam', ['teamName' => $t->name,  'teamId' => $t->id])}}" >{{ $t->name }}</a></td>
                 <td>{{ $t->creator->name }}</td>
                 <td>{{ date('F d, Y', strtotime($t->created_at)) }}</td>
-                <td><button type="button" class="btn btn-danger btn-xs" ><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> Remove</button></td>
+                <td><button type="button" class="btn btn-danger btn-xs" onclick="removeTeam('{{ action('Team\TeamController@delete', $t->id) }}')" ><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> Remove</button></td>
             </tr>
         @endforeach
     </table>
@@ -39,4 +39,15 @@
     @endif
 
     @include('widgets.teamAdditionModal')
+
+    <script>
+        function removeTeam(url) {
+            $.ajax({
+                url: url,
+                method: "get"})
+                    .success(function (event) {
+                        location.reload();
+                    });
+        }
+    </script>
 @endsection

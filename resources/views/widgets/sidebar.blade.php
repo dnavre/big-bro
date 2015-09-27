@@ -9,6 +9,6 @@
     <li @if($mainMenu == 'people')class="" @endif><a href="{{ action('People\PeopleController@listAll') }}">People</a></li>
 </ul>
 <ul class="nav nav-sidebar">
-    <li><a href="">My OKRs</a></li>
+    <li @if($mainMenu == 'my')class="active" @endif><a href="{{ action('My\MyOkrsController@viewOkrs') }}">My OKRs</a></li>
     <li><a href="">History</a></li>
 </ul>
