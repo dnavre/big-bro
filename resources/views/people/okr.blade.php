@@ -64,6 +64,19 @@
 <script type="text/javascript">
 
 $(document).ready(function () {
+
+    function loadObjectives (data) {
+        $.ajax ({
+            url: "{{ action('Objective\ObjectiveController@getByEntity') }}",
+            data: data,
+            method: 'post'
+        }).success(function (resp) {
+            $('#objectivesList').html(resp);
+        }).error(function () {
+            alert("Barev dzez hargeli barekamner, harcerov Yervandin :D !!! ");
+        });
+    }
+
     $('.spinner').spinner();
     $('.spinner1').spinner();
     $('#spinner, #spinner1').on('change', function () {
@@ -74,15 +87,16 @@ $(document).ready(function () {
             '_token': '{!! csrf_token() !!}'
         };
 
-        $.ajax ({
-            url: "{{ action('Objective\ObjectiveController@getByEntity') }}",
-            data: data,
-            method: 'post'
-        }).success(function (resp) {
-            $('#objectivesList').html(resp);
-        }).error(function () {
-            alert("ersssror qaqa");
-        });
+        loadObjectives(data);
     });
+
+    var data = {
+        'year': $('#spinner').val(),
+        'quarter': $('#spinner1').val(),
+        'entityId': $('#entityId').val(),
+        '_token': '{!! csrf_token() !!}'
+    };
+
+    loadObjectives(data);
 });
 </script>
