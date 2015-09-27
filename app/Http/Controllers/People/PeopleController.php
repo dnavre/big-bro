@@ -31,6 +31,10 @@ class PeopleController extends Controller
     }
 
     public function listAll() {
-        return view('people', ['mainMenu' => 'people']);
+        $people = $this->peopleService->listPeople();
+        return view('people', [
+            'mainMenu' => 'people',
+            'people' => $people
+        ]);
     }
 }

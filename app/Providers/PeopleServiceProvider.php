@@ -9,6 +9,7 @@
 namespace BigBro\Providers;
 
 
+use BigBro\Models\User;
 use Illuminate\Support\ServiceProvider;
 
 class PeopleServiceProvider extends ServiceProvider
@@ -25,5 +26,9 @@ class PeopleServiceProvider extends ServiceProvider
         $this->app->singleton('BigBro\Providers\PeopleServiceProvider', function ($app) {
             return new PeopleServiceProvider($app);
         });
+    }
+
+    public function listPeople() {
+        return User::all();
     }
 }

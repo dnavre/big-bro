@@ -1,4 +1,6 @@
 <?php
+use Illuminate\Database\Eloquent\Model;
+
 /**
  * Created by PhpStorm.
  * User: yervand
