@@ -37,4 +37,12 @@ class ObjectiveServiceProvider extends ServiceProvider
             'schedule_id' => $scheduleId
         ])->get();
     }
+
+    public function createObjective($scheduleId, $objectiveTitle) {
+        $objective = new Objective();
+        $objective->title = $objectiveTitle;
+        $objective->schedule_id = $scheduleId;
+
+        $objective->save();
+    }
 }

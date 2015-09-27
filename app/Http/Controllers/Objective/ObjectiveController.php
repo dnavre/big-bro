@@ -14,6 +14,7 @@ use BigBro\Models\User;
 use BigBro\Providers\ObjectiveServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 
 class ObjectiveController extends Controller
 {
@@ -47,5 +48,16 @@ class ObjectiveController extends Controller
         return view('objective.objectiveList', [
             'objectives' => $objectives,
         ]);
+    }
+
+    public function add(Request $request) {
+        $year = $request->get('year');
+        $quarter = $request->get('quarter');
+        $objectiveText = $request->get('objectiveText');
+
+        $entity = Entity::where(['user_id' => Auth::user()->id])->first();
+
+        $schedule = $this->scheduleService->getScheduleByEntity($entity->id, $year, $quarter);
+
     }
 }
