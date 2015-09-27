@@ -18,7 +18,7 @@ class KeyResult extends Model
      *
      * @var string
      */
-    protected $table = 'entity';
+    protected $table = 'key_result';
 
     /**
      * The attributes that are mass assignable.

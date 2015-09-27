@@ -18,7 +18,7 @@ class Schedule extends Model
      *
      * @var string
      */
-    protected $table = 'entity';
+    protected $table = 'schedule';
 
     /**
      * The attributes that are mass assignable.

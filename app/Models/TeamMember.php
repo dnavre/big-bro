@@ -18,7 +18,7 @@ class TeamMember extends Model
      *
      * @var string
      */
-    protected $table = 'entity';
+    protected $table = 'team_member';
 
     /**
      * The attributes that are mass assignable.

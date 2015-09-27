@@ -38,4 +38,9 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['remember_token'];
+
+    public function createdTeams()
+    {
+        return $this->hasMany('BigBro\Models\Teams');
+    }
 }

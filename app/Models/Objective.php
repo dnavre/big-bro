@@ -18,7 +18,7 @@ class Objective extends Model
      *
      * @var string
      */
-    protected $table = 'entity';
+    protected $table = 'objective';
 
     /**
      * The attributes that are mass assignable.

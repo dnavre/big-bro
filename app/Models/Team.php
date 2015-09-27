@@ -20,14 +20,14 @@ class Team extends Model
      *
      * @var string
      */
-    protected $table = 'entity';
+    protected $table = 'team';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['creator_id', 'name'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -35,4 +35,9 @@ class Team extends Model
      * @var array
      */
     protected $hidden = [];
+
+    public function creator()
+    {
+        return $this->belongsTo('BigBro\Models\User', 'creator_id');
+    }
 }

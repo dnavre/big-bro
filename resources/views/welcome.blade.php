@@ -12,8 +12,8 @@
             @if(isset($invalidCredentials))
              <label class="control-label" for="username">Invalid username or password</label>
             @endif
-            <label for="username">Email address</label>
-            <input name="username" type="username" class="form-control" id="username" placeholder="Email">
+            <label for="username">Username</label>
+            <input name="username" type="username" class="form-control" id="username" placeholder="Username">
         </div>
         <div class="form-group">
             <label for="password">Password</label>
