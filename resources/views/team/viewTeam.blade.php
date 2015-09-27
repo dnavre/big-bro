@@ -4,6 +4,11 @@
 
 @section('content')
 
+
+    <h3>OKRs</h3>
+
+    @include('team.okr', ['team' => $team, 'objectives' => [], 'quarter' => 1])
+
     <h3>Team Members</h3>
 
     @if(isset($teamMembers) && count($teamMembers) > 0)
