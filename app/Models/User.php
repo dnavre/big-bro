@@ -39,6 +39,11 @@ class User extends Model implements AuthenticatableContract,
      */
     protected $hidden = ['remember_token'];
 
+    public function entity()
+    {
+        return $this->hasOne('BigBro\Models\Entity', 'user_id');
+    }
+
     public function createdTeams()
     {
         return $this->hasMany('BigBro\Models\Teams');

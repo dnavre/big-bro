@@ -9,6 +9,7 @@
 namespace BigBro\Http\Controllers\People;
 
 use BigBro\Http\Controllers\Controller;
+use BigBro\Models\User;
 use BigBro\Providers\PeopleServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -21,6 +22,8 @@ class PeopleController extends Controller
      */
     private $peopleService;
 
+    private $scheduleService;
+
     /**
      * Create a new authentication controller instance.
      *
@@ -29,6 +32,7 @@ class PeopleController extends Controller
     public function __construct()
     {
         $this->peopleService = App::make('BigBro\Providers\PeopleServiceProvider');
+        $this->scheduleService = App::make('BigBro\Providers\ScheduleServiceProvider');
     }
 
     public function listAll() {
@@ -50,7 +54,11 @@ class PeopleController extends Controller
     public function objectives (Request $request) {
         $year = $request->get('year');
         $quarter = $request->get('quarter');
-        dd($year, $quarter);
+        $personId = $request->get('personId');
+
+        $user = User::where(['id' => $personId])->first();
+        $schedule = $this->scheduleService->getScheduleByEntity($user->entity->id, $year, $quarter);
+        dd($schedule);
     }
 
     private function getQuarter () {

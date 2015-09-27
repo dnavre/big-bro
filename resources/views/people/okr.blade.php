@@ -118,6 +118,8 @@
             </div>
 
             <button type="submit" class="btn btn-default">Create User</button>
+
+            <input type="hidden" name="personId" value="{{$person->id}}" id="personId"/>
         </form>
 
 
@@ -133,6 +135,7 @@ $(document).ready(function () {
         var data = {
             'year': $('#spinner').val(),
             'quarter': $('#spinner1').val(),
+            'personId': $('#personId').val(),
             '_token': '{!! csrf_token() !!}'
         };
 
