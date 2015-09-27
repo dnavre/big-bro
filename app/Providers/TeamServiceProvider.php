@@ -8,6 +8,7 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 use BigBro\Models\Team;
 use Ccovey\LdapAuth\LdapUser;
 use DateTime;
+use Auth;
 
 class TeamServiceProvider extends ServiceProvider
 {
@@ -55,6 +56,7 @@ class TeamServiceProvider extends ServiceProvider
         $team = new Team();
 
         $team->name = $name;
+        $team->creator_id = Auth::user()->id;
 
         $team->save();
     }

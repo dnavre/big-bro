@@ -16,7 +16,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save team</button>
+                    <button id="saveTeamBtn" type="button" class="btn btn-primary" onclick="javascript:void(0);">Save team</button>
                 </div>
             </form>
         </div>
@@ -26,9 +26,18 @@
 
 <script>
 
-    $('#teamAdditionForm').submit(function( event ) {
-        $('#teamAdditionModal').toggle();
-        event.preventDefault();
+    $('#saveTeamBtn').on('click', function( event ) {
+
+        var form = $("#teamAdditionForm").serialize();
+
+        $.ajax({
+            url: "{{ action('Team\TeamController@create') }}",
+            data: form,
+            method: "post"})
+                .success(function (event) {
+                    $('#teamAdditionModal').modal('toggle');
+                    location.reload();
+                });
     });
 
 </script>
