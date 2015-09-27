@@ -13,17 +13,21 @@
 
     </div>
 </div>
-@endsection
-
 <script type="text/javascript">
-function selectPerson($url) {
-    $.ajax ({
-        url: $url,
-        method: 'get'
-    }).success(function (resp) {
-        $('#okrForPerson').html(resp);
-    }).error(function () {
-        alert("error qaqa");
+    $(document).ready(function () {
+        $('.select-person').on('click', function () {
+            var self = $(this),
+                url = self.data('url');
+
+            $.ajax ({
+                url: url,
+                method: 'get'
+            }).success(function (resp) {
+                $('#okrForPerson').html(resp);
+            }).error(function () {
+                alert("error qaqa");
+            });
+        });
     });
-}
 </script>
+@endsection
