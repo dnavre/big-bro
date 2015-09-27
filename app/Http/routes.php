@@ -26,6 +26,12 @@ Route::post('/teams/create', ['as' => 'createTeam', 'before' => 'auth', 'uses' =
 
 
 Route::get('/people', ['as' => 'people', 'before' => 'auth', 'uses' => 'People\PeopleController@listAll']);
+Route::get('/people/get/{id}', [
+        'as' => 'people',
+        'before' => 'auth',
+        'uses' => 'People\PeopleController@get'
+    ])
+    ->where('id', '[0-9]+');
 
 Route::post('/auth/login', ['as' => 'login', 'uses' => 'Auth\AuthController@authenticate']);
 Route::get('/auth/logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@logout']);

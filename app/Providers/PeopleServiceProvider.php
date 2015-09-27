@@ -31,4 +31,10 @@ class PeopleServiceProvider extends ServiceProvider
     public function listPeople() {
         return User::all();
     }
+
+    public function getPerson ($id = null) {
+        return User::firstOrNew([
+            'id' => $id
+        ]);
+    }
 }

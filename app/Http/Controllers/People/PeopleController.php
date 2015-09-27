@@ -10,6 +10,7 @@ namespace BigBro\Http\Controllers\People;
 
 use BigBro\Http\Controllers\Controller;
 use BigBro\Providers\PeopleServiceProvider;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
 class PeopleController extends Controller
@@ -34,6 +35,13 @@ class PeopleController extends Controller
         $people = $this->peopleService->listPeople();
         return view('people', [
             'mainMenu' => 'people',
+            'people' => $people
+        ]);
+    }
+
+    public function get($id) {
+        $people = $this->peopleService->getPerson($id);
+        return view('people.okr', [
             'people' => $people
         ]);
     }

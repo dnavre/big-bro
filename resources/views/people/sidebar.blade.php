@@ -1,7 +1,26 @@
-<div class="row col-sm-2">
-    <ul class="list-group">
-        @foreach ($people as $p)
-            <li class="list-group-item">This is user {{ $p->username }}</li>
-        @endforeach
-    </ul>
+
+<div class="sidebar-nav">
+    <div class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <span class="visible-xs navbar-brand">Sidebar menu</span>
+        </div>
+        <div class="navbar-collapse collapse sidebar-navbar-collapse">
+            <ul class="nav navbar-nav">
+                @foreach ($people as $p)
+                    <li>
+                        <a href="#"
+                           onclick="selectPerson('{{ action('People\PeopleController@get', ['id' => $p->id]) }}');">
+                            {{ $p->name }}
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
 </div>
