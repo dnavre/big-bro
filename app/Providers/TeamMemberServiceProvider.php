@@ -10,6 +10,7 @@ use BigBro\Models\Team;
 use Ccovey\LdapAuth\LdapUser;
 use DateTime;
 use Auth;
+use Log;
 
 class TeamMemberServiceProvider extends ServiceProvider
 {
@@ -57,5 +58,14 @@ class TeamMemberServiceProvider extends ServiceProvider
         $tm->creator_id = Auth::user()->id;
 
         $tm->save();
+    }
+
+    public function removeTeamMember($teamId, $userId) {
+
+        $tm = TeamMember::where(['team_id' => $teamId, 'user_id' => $userId])->first();
+
+        //info('Showing user profile for user: '.$tm);
+
+        $tm->delete();
     }
 }

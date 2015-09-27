@@ -83,4 +83,8 @@ class TeamController extends Controller
 
         $this->teamMemberService->addTeamMember($team->id, $user->id);
     }
+
+    public function removeMember(Request $request) {
+        $this->teamMemberService->removeTeamMember($request->input('team_id'), $request->input('user_id'));
+    }
 }

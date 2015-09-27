@@ -14,6 +14,7 @@
             <th>Name</th>
             <th width="230px">Added by</th>
             <th width="180px">Since</th>
+            <th width="80px"></th>
         </tr>
         </thead>
 
@@ -25,6 +26,7 @@
                 <td><a href="{{action('People\PeopleController@get', $tm->user->id)}}" >{{ $tm->user->name }}</a></td>
                 <td>{{ $tm->creator->name }}</td>
                 <td>{{ date('F d, Y', strtotime($tm->created_at)) }}</td>
+                <td><button type="button" class="btn btn-danger btn-xs" onclick="removeTeamMember('{{ $team->id }}', '{{ $tm->user->id }}')"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> Remove</button></td>
             </tr>
         @endforeach
     </table>
@@ -33,4 +35,20 @@
     @endif
 
     @include('widgets.addTeamMemberModal', $team)
+
+    <script>
+        function removeTeamMember(teamId, userId) {
+            $.ajax({
+                url: "{{ action('Team\TeamController@removeMember') }}",
+                data: {
+                    user_id: userId,
+                    team_id: teamId,
+                    _token: '{{ csrf_token() }}'
+                },
+                method: "post"})
+                    .success(function (event) {
+                        location.reload();
+                    });
+        }
+    </script>
 @endsection
