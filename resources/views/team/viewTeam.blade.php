@@ -13,6 +13,7 @@
             <th width="30px">#</th>
             <th>Name</th>
             <th width="230px">Added by</th>
+            <th width="180px">Since</th>
         </tr>
         </thead>
 
@@ -23,6 +24,7 @@
                 <td>{{ $i  }}</td>
                 <td><a href="{{action('People\PeopleController@get', $tm->user->id)}}" >{{ $tm->user->name }}</a></td>
                 <td>{{ $tm->creator->name }}</td>
+                <td>{{ date('F d, Y', strtotime($tm->created_at)) }}</td>
             </tr>
         @endforeach
     </table>
