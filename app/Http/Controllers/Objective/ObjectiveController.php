@@ -42,6 +42,10 @@ class ObjectiveController extends Controller
 
         $schedule = $this->scheduleService->getScheduleByEntity($entityId, $year, $quarter);
 
-        dd($schedule);
+        $objectives = $this->objectiveService->getObjectives($schedule != null ? $schedule->id : null);
+
+        return view('objective.objectiveList', [
+            'objectives' => $objectives,
+        ]);
     }
 }

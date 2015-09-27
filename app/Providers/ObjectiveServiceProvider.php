@@ -35,6 +35,6 @@ class ObjectiveServiceProvider extends ServiceProvider
     public function getObjectives ($scheduleId) {
         return Objective::where([
             'schedule_id' => $scheduleId
-        ])->first();
+        ])->get();
     }
 }
