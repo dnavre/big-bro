@@ -158,6 +158,7 @@ return [
         BigBro\Providers\TeamMemberServiceProvider::class,
         BigBro\Providers\PeopleServiceProvider::class,
         BigBro\Providers\ScheduleServiceProvider::class,
+        BigBro\Providers\ObjectiveServiceProvider::class,
 
     ],
 

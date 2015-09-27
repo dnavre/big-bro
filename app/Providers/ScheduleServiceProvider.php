@@ -28,6 +28,12 @@ class ScheduleServiceProvider extends  ServiceProvider
         });
     }
 
+    /**
+     * @param $entityId
+     * @param $year
+     * @param $quarter
+     * @return Schedule | null
+     */
     public function getScheduleByEntity($entityId, $year, $quarter)
     {
         return Schedule::where([
