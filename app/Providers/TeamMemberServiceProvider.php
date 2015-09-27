@@ -64,8 +64,6 @@ class TeamMemberServiceProvider extends ServiceProvider
 
         $tm = TeamMember::where(['team_id' => $teamId, 'user_id' => $userId])->first();
 
-        //info('Showing user profile for user: '.$tm);
-
         $tm->delete();
     }
 }

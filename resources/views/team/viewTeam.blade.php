@@ -7,6 +7,11 @@
     <h3>Team Members</h3>
 
     @if(isset($teamMembers) && count($teamMembers) > 0)
+
+    <div style="text-align: right;padding-right: 25px;">
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#teamMemberAdditionModal">Add a member</button>
+    </div>
+
     <table class="table table-hover">
         <thead>
         <tr>
