@@ -10,7 +10,7 @@ namespace BigBro\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Entity extends Model
 {
 
     /**

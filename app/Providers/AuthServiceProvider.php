@@ -8,6 +8,7 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 use BigBro\Models\User;
 use Ccovey\LdapAuth\LdapUser;
 use DateTime;
+use Illuminate\Database\Eloquent;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -49,7 +50,9 @@ class AuthServiceProvider extends ServiceProvider
     {
         $user = User::where('username', $ldUser->username)->first();
 
+
         if($user == null) {
+
             $user = new User();
             $user->username = $ldUser->username;
             $user->name = $ldUser->name;

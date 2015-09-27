@@ -56,4 +56,9 @@ class TeamServiceProvider extends ServiceProvider
 
         $team->save();
     }
+
+    public function get($teamId)
+    {
+        return Team::where('id', $teamId)->first();
+    }
 }
