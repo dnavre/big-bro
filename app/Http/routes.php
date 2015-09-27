@@ -27,7 +27,12 @@ Route::post('/teams/addMember', ['as' => 'addMemberToTeam', 'before' => 'auth', 
 Route::post('/teams/removeMember', ['as' => 'removeMemberFromTeam', 'before' => 'auth', 'uses' => 'Team\TeamController@removeMember']);
 Route::get('/teams/{teamName}/{teamId}', ['as' => 'viewTeam', 'before' => 'auth', 'uses' => 'Team\TeamController@viewTeam']);
 
-Route::post('/people/objectives', ['as' => 'getObjectives', 'before' => 'auth', 'uses' => 'People\PeopleController@objectives']);
+Route::post('/objective/getByEntity', [
+    'as' => 'getObjectives',
+    'before' => 'auth',
+    'uses' => 'Objective\ObjectiveController@getByEntity'
+]);
+
 Route::get('/people', ['as' => 'people', 'before' => 'auth', 'uses' => 'People\PeopleController@listAll']);
 Route::get('/people/get/{id}', [
         'as' => 'people',

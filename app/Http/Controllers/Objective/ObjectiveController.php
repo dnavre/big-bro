@@ -10,9 +10,9 @@ namespace BigBro\Http\Controllers\Objective;
 
 
 use BigBro\Http\Controllers\Controller;
-use BigBro\Http\Requests\Request;
 use BigBro\Models\User;
 use BigBro\Providers\ObjectiveServiceProvider;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
 class ObjectiveController extends Controller
@@ -27,6 +27,7 @@ class ObjectiveController extends Controller
      */
     private $objectiveService;
 
+
     public function __construct()
     {
         $this->scheduleService = App::make('BigBro\Providers\ScheduleServiceProvider');
@@ -34,13 +35,12 @@ class ObjectiveController extends Controller
     }
 
 
-    public function objectives (Request $request) {
+    public function getByEntity (Request $request) {
         $year = $request->get('year');
         $quarter = $request->get('quarter');
-        $personId = $request->get('personId');
+        $entityId = $request->get('entityId');
 
-        $user = User::where(['id' => $personId])->first();
-        $schedule = $this->scheduleService->getScheduleByEntity($user->entity->id, $year, $quarter);
+        $schedule = $this->scheduleService->getScheduleByEntity($entityId, $year, $quarter);
 
         dd($schedule);
     }

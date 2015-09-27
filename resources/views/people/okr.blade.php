@@ -52,7 +52,7 @@
                     </div>
                 </div>
             </div>
-            <input type="hidden" name="personId" value="{{$person->id}}" id="personId"/>
+            <input type="hidden" name="entityId" value="{{$entity->id}}" id="entityId"/>
         </form>
 
         <form>
@@ -78,12 +78,12 @@ $(document).ready(function () {
         var data = {
             'year': $('#spinner').val(),
             'quarter': $('#spinner1').val(),
-            'personId': $('#personId').val(),
+            'entityId': $('#entityId').val(),
             '_token': '{!! csrf_token() !!}'
         };
 
         $.ajax ({
-            url: "{{ action('People\PeopleController@objectives') }}",
+            url: "{{ action('Objective\ObjectiveController@getByEntity') }}",
             data: data,
             method: 'post'
         }).success(function (resp) {

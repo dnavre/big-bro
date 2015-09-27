@@ -40,9 +40,13 @@ class PeopleController extends Controller
     }
 
     public function get($id) {
+
+        $entity = User::where(['id' => $id])->first();
         $person = $this->peopleService->getPerson($id);
+
         return view('people.okr', [
             'person' => $person,
+            'entity' => $entity,
             'quarter' => $this->getQuarter()
         ]);
     }
