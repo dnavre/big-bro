@@ -17,6 +17,7 @@
                 <th>Team</th>
                 <th width="230px">Creator</th>
                 <th width="190px">Created</th>
+                <th width="60px"></th>
             </tr>
         </thead>
 
@@ -28,6 +29,7 @@
                 <td><a href="{{action('Team\TeamController@viewTeam', ['teamName' => $t->name,  'teamId' => $t->id])}}" >{{ $t->name }}</a></td>
                 <td>{{ $t->creator->name }}</td>
                 <td>{{ date('F d, Y', strtotime($t->created_at)) }}</td>
+                <td><button type="button" class="btn btn-danger btn-xs" ><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> Remove</button></td>
             </tr>
         @endforeach
     </table>
