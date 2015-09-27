@@ -24,7 +24,7 @@
             <?php $i++ ?>
             <tr>
                 <td>{{ $i  }}</td>
-                <td><a href="{{action('Team\TeamController@viewTeam', $t->id)}}" >{{ $t->name }}</a></td>
+                <td><a href="{{action('Team\TeamController@viewTeam', ['teamName' => $t->name,  'teamId' => $t->id])}}" >{{ $t->name }}</a></td>
                 <td>{{ $t->creator->name }}</td>
             </tr>
         @endforeach

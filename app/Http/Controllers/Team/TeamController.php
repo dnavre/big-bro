@@ -54,7 +54,7 @@ class TeamController extends Controller
         $this->teamService->createTeam($request->input("teamName"));
     }
 
-    public function viewTeam($teamId) {
+    public function viewTeam($teamName, $teamId) {
         return view('viewTeam', ['mainMenu' => 'teams', 'team' => $this->teamService->get($teamId)]);
     }
 }

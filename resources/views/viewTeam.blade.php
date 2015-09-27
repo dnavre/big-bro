@@ -1,8 +1,7 @@
 @extends('layouts.master')
 
-@section('title', $team->name)
+@section('title', 'dsfsd')
 
 @section('content')
-
 
 @endsection

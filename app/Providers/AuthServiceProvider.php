@@ -50,7 +50,6 @@ class AuthServiceProvider extends ServiceProvider
     {
         $user = User::where('username', $ldUser->username)->first();
 
-
         if($user == null) {
 
             $user = new User();
