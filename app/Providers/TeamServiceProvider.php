@@ -5,7 +5,7 @@ namespace BigBro\Providers;
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use BigBro\Models\User;
+use BigBro\Models\Team;
 use Ccovey\LdapAuth\LdapUser;
 use DateTime;
 
@@ -52,5 +52,10 @@ class TeamServiceProvider extends ServiceProvider
 
     public function createTeam($name) {
 
+        $team = new Team();
+
+        $team->name = $name;
+
+        $team->save();
     }
 }

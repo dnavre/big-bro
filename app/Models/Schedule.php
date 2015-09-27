@@ -6,6 +6,10 @@
  * Time: 1:34 AM
  */
 
+namespace BigBro\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
 class Schedule extends Model
 {
 

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Redirect;
 use Auth;
 use Session;
 use App;
-use BigBro\Providers\AuthServiceProvider;
+use BigBro\Providers\TeamServiceProvider;
 use BigBro\Models\User;
 use Validator;
 use BigBro\Http\Controllers\Controller;
@@ -51,6 +51,6 @@ class TeamController extends Controller
     }
 
     public function create(Request $request) {
-        //$this->teamService->
+        $this->teamService->createTeam($request->input("teamName"));
     }
 }
