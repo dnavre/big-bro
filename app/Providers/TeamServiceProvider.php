@@ -2,6 +2,7 @@
 
 namespace BigBro\Providers;
 
+use BigBro\Models\Entity;
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -55,6 +56,10 @@ class TeamServiceProvider extends ServiceProvider
         $team->creator_id = Auth::user()->id;
 
         $team->save();
+
+        $entity = new Entity();
+        $entity->team_id = $team->id;
+        $entity->save();
     }
 
     public function get($teamId)

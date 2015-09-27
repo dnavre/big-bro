@@ -2,6 +2,7 @@
 
 namespace BigBro\Providers;
 
+use BigBro\Models\Entity;
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -57,6 +58,11 @@ class AuthServiceProvider extends ServiceProvider
             $user->name = $ldUser->name;
             $user->email = $ldUser->email;
             $user->save();
+
+            $entity = new Entity();
+            $entity->user_id = $user->id;
+
+            $entity->save();
         }
     }
 }
