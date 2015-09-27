@@ -9,6 +9,7 @@
 namespace BigBro\Providers;
 
 
+
 use BigBro\Models\User;
 use Illuminate\Support\ServiceProvider;
 

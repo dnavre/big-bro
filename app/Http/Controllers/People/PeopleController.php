@@ -9,6 +9,7 @@
 namespace BigBro\Http\Controllers\People;
 
 use BigBro\Http\Controllers\Controller;
+use BigBro\Models\Entity;
 use BigBro\Models\User;
 use BigBro\Providers\ObjectiveServiceProvider;
 use BigBro\Providers\PeopleServiceProvider;
