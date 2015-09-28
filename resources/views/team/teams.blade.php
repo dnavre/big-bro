@@ -38,7 +38,7 @@
     <h3>No teams have been added yet. Click <a href="#" data-toggle="modal" data-target="#teamAdditionModal">here</a> to add one.</h3>
     @endif
 
-    @include('widgets.teamAdditionModal')
+    @include('team.util.addTeamModal')
 
     <script>
         function removeTeam(url) {

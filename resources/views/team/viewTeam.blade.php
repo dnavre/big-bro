@@ -44,7 +44,7 @@
         <h4>No team members have been added to the project. Click <a href="#"  data-toggle="modal" data-target="#teamMemberAdditionModal">here</a> to add some.</h4>
     @endif
 
-    @include('widgets.addTeamMemberModal', $team)
+    @include('team.util.addTeamMemberModal', $team)
 
     <script>
         function removeTeamMember(teamId, userId) {
